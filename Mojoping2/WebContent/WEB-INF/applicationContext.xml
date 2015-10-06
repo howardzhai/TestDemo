@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    
+	<!-- Enable @Controller annotation support -->
+  	<mvc:annotation-driven />
+  	
+  	<context:annotation-config/>	
+  
+   	<!-- Map simple view name such as "test" into /WEB-INF/views/test.jsp -->
+  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="prefix" value="/jsp/" />
+	    <property name="suffix" value=".jsp" />
+  	</bean>
+  	   
+  	<!-- Scan classpath for annotations (eg: @Service, @Repository etc) -->
+  	<context:component-scan base-package="com.mojoping"/>
+   
+  	<!-- JDBC Data Source. It is assumed you have MySQL running on localhost port 3306 with 
+      	 username root and blank password. Change below if it's not the case -->
+  	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	    <property name="url" value="jdbc:mysql://localhost:3306/mojoping"/>
+	    <property name="username" value="root"/>
+	    <property name="password" value="123456"/>
+	    <property name="validationQuery" value="SELECT 1"/>
+  	</bean>
+  	
+  	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+   		<property name="basename" value="messages"/>
+	</bean>
+   
+  	<!-- Hibernate Session Factory -->
+  	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource"/>
+	    <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+	    <property name="packagesToScan">
+      		<array>
+       			<value>com.mojoping</value>
+      		</array>
+    	</property>
+    	<property name="hibernateProperties">
+      		<value>
+       			hibernate.dialect=org.hibernate.dialect.MySQLDialect
+      		</value>
+    	</property>    	
+  	</bean>
+   
+  	<!-- Hibernate Transaction Manager -->
+  	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+  		<property name="sessionFactory" ref="sessionFactory"/>
+  	</bean>
+   
+  	<!-- Activates annotation based transaction management -->
+  	<tx:annotation-driven transaction-manager="transactionManager"/>  
+  	
+  	<!-- Back to previous URL after logging out -->
+  	<bean id="logoutSuccessHandler" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
+	    <property name="useReferer" value="true"/>
+	</bean>
+	
+	<!-- Configure the multipart resolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+    
+    <!-- Define Email Sender -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="25"/>
+        <property name="username" value="mkuscuo1@binghamton.edu"/>
+        <property name="password" value="41Mehmet*"/>
+        <property name="javaMailProperties">
+            <props>
+                <!-- Use SMTP transport protocol -->
+                <prop key="mail.transport.protocol">smtp</prop>
+                <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">true</prop>
+                <!-- Use TLS to encrypt communication with SMTP server -->
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="alertMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from">           
+            <value>mkuscuo1@binghamton.edu</value>
+        </property>
+        <property name="to">           
+            <value>mkuscuo1@binghamton.edu</value>
+        </property>
+        <property name="subject" value="Alert - Exception occurred. Please investigate"/>
+    </bean>
+    
+  	
+ </beans>

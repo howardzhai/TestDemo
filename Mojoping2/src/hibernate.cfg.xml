@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+     	<property name="show_sql">true</property>  
+     	<property name="format_sql">true</property>
+        <mapping class="com.mojoping.model.Category" />  
+        <mapping class="com.mojoping.model.Checklist" />             
+        <mapping class="com.mojoping.model.Confirmation" /> 
+        <mapping class="com.mojoping.model.SubCategory" /> 
+        <mapping class="com.mojoping.model.User" />     
+        <mapping class="com.mojoping.model.ProcedureStep" />  
+        <mapping class="com.mojoping.model.Material" />  
+        <mapping class="com.mojoping.model.UserRoles" />  
+        <mapping class="com.mojoping.model.Labor" /> 
+        <mapping class="com.mojoping.model.Overhead" />  
+        <mapping class="com.mojoping.model.Profit" />   
+        <mapping class="com.mojoping.model.Garbage" />  
+        <mapping class="com.mojoping.model.Insurance" />     
+        <mapping class="com.mojoping.model.TotalCal" /> 
+        <mapping class="com.mojoping.model.UserComment" /> 
+        <mapping class="com.mojoping.model.SuggestCategory" /> 
+               
+                     
+    </session-factory>   
+</hibernate-configuration>
+
+ 

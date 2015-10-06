@@ -1,0 +1,56 @@
+.error {
+	color: #ff0000;
+}
+ 
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+.frameIn {
+position: relative;
+margin-top: 5em;
+height:1000px;
+}
+.procedure{
+/* font-family: "Trebuchet MS", Helvetica, sans-serif;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 30px;
+position: absolute;
+color: #007184;
+height: 550px;
+width: 1000px;
+margin: -150px 0 0 -720px;
+top: 50%;
+left: 50%;
+background-color: rgba(255,255,255,0.7);
+border: 40px solid rgba(255,255,255,0.3);
+border-left-width: 100px;
+border-right-width: 100px;
+border: 10px solid rgba(255,255,255,0.4);
+border-left-width: 200px;
+border-right-width: 200px;
+box-shadow: 3px 3px 5px #4F4F4F; */
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 30px;
+/* position: absolute; */
+color: #005c5F;
+height: 550px;
+width: 1000px;
+/* margin: -100px 0 0 -650px; */
+ margin: 0 auto;
+left: 50%;
+background-color: rgba(255,255,255,0.7);
+border: 40px solid rgba(255,255,255,0.3);
+border-left-width: 100px;
+border-right-width: 100px;
+border: 10px solid rgba(255,255,255,0.4);
+border-left-width: 200px;
+border-right-width: 200px;
+box-shadow: 3px 3px 5px #4F4F4F;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd "> 
+ 
+ 	 <!-- Map resources --> 
+ 	<mvc:resources mapping="/resources/**" location="/, classpath:/META-INF/web-resources/" /> 
+ 	
+ 	<mvc:resources mapping="/images/**" location="/, classpath:/META-INF/web-resources/images/" /> 
+ 	
+ 	<mvc:resources mapping="/res/**" location="/, classpath:/jsp/"/>
+  
+  	<!-- Map simple view name such as "test" into /WEB-INF/views/test.jsp -->
+  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="prefix" value="/jsp/" />
+	    <property name="suffix" value=".jsp" />
+  	</bean>
+   
+
+  	
+ </beans>

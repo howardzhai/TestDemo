@@ -1,0 +1,29 @@
+.footer {
+background: rgba(0, 49, 66, 0.85);
+/* position: fixed; */
+/* clear: both; */
+bottom:0px;
+position: absolute;
+height: 20em;
+width: 100%;
+text-align: center;
+}
+.footer h2{
+font-family:'Open Sans', sans-serif;
+font-size: 2.6em;
+font-weight: 700;
+color:#ffffff;
+padding-top: 30px;
+	
+}
+
+.icons{
+	
+	list-style:none;
+
+}
+.footer li{
+	
+		display:inline;
+		padding:50px;
+}

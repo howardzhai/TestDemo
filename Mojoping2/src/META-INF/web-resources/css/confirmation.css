@@ -1,0 +1,35 @@
+.error {
+	color: #ff0000;
+}
+ 
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+.frameIn {
+position: relative;
+margin-top: 15em;
+}
+
+#lead{
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: 30px;
+position: absolute;
+color: #FFFFFF;
+height: 200px;
+width: 1000px;
+margin: -180px 0 0 -650px;
+top: 50%;
+left: 50%;
+background-color: rgba(10,10,20,0.4);
+border: 40px solid rgba(255,255,255,0.3);
+border-left-width: 100px;
+border-right-width: 100px;
+box-shadow: 3px 3px 5px #4F4F4F;
+	
+}
