@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.marlabs.domain.Task" table="task_list001">
+		<id name="taskId">
+			<generator class="increment"></generator>
+		</id>
+		<property name="taskName" length="40"></property>
+		<property name="description" length="40"></property>
+		<property name="priority" length="10"></property>
+		<property name="status" length="12"></property>
+		<property name="archived"></property>
+		<property name="startTime" length="25"></property>
+		<property name="endTime" length="25"></property>
+
+	</class>
+
+</hibernate-mapping>
